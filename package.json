@@ -1,0 +1,38 @@
+{
+  "name": "vote-often",
+  "version": "0.9.0",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Gene Glover",
+  "license": "ISC",
+  "description": "voting application",
+  "dependencies": {
+    "body-parser": "^1.17.2",
+    "ejs": "^2.5.7",
+    "express": "^4.15.4",
+    "mongod": "^2.0.0",
+    "mongoose": "^4.11.10",
+    "nodemon": "^1.12.0",
+    "path": "^0.12.7",
+    "store": "^2.0.12"
+  },
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ecglover8/vote-often.git"
+  },
+  "keywords": [
+    "node",
+    "express",
+    "mongo",
+    "freecodecamp",
+    "kanone"
+  ],
+  "bugs": {
+    "url": "https://github.com/ecglover8/vote-often/issues"
+  },
+  "homepage": "https://github.com/ecglover8/vote-often#readme"
+}
