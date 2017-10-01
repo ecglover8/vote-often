@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+    <% include header %>
+    <% if (locals.errmsg) { %>
+    <p id="errmsg"><%= errmsg %></p>
+    <% } %>
+    <div id="polls">
+	<% polls.forEach( (poll) => { %>
+    <% var choices = poll.choices %>
+	<form name="poll" class="poll" method="post">
+			<div class="upper">
+				<h4><%= poll.question %></h4>
+				<h6><em>by <%= poll.creator %></em></h6>
+			</div>
+			<div class="lower">
+				<% if (locals.name) { %>
+				<a class="btn" href="/edit/<%= poll.id %>">&#9998; Edit</a>
+				<% } %>
+				<% if (locals.name == poll.creator) { %>
+				<input type="submit" formaction="personal/preset" class="btn" value="&#8635; Reset" />
+				<input type="submit" formaction="personal/pdelete" class="btn" value="&#10006; Delete" />
+				<% } %>
+				<br /><br />
+				<% for (var i = 0; i < choices.length; i++) { %>
+				<input type="radio" name="choice" value=<%= i %> /> <%= choices[i].val %><br />
+				<% } %>
+				<br />
+				<input type="hidden" name="id" value=<%= poll.id %> />
+				<a class="btn" href="/viewres/<%= poll.id %>">&#128065; View Results</a>
+				<input type="submit" formaction="personal/pvote" class="btn" value="&#9745; Vote" />
+			</div>
+		</form>
+	<% }) %>
+	</div>
+    <p><a href="/">Return to home page</p>
+    </body>
+</html>

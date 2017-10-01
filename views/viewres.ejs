@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+    <% include header %>
+    <h3><%= title %> -- <%= record.question %></h3>
+    <% var choice = record.choices %>
+    <% var sum = 0 %>
+    <% for (var i = 0; i < choice.length; i++) { %>
+    <% sum = sum + choice[i].count %>
+    <% } %>
+    <div id="viewmaster">
+        <br />
+        <% for (var i = 0; i < choice.length; i++) { %>
+        <% if (sum !== 0) { %>
+        <% var percent = (100*(choice[i].count)/sum).toFixed(1) %>
+        <% } %>
+        <p><%= choice[i].val %>: <%= choice[i].count %> 
+        <% if (sum !== 0) { %>
+        -- <%= percent %>%
+        <% } %></p>
+        <div class="bars" style="width:<%= 3.5*percent %>px;"></div>
+        <br />
+        <% } %>
+    </div>
+    <% if (locals.errmsg) { %>
+    <p id="errmsg"><%= errmsg %></p>
+    <% } %>
+    <p><a href="/">Return to home page</p>
+    </body>
+</html>

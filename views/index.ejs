@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+    <% include header %>
+    <div id="intro">
+    	<% if (locals.name !== "") { %>
+    	<p>Welcome back, <%= name %>. You already know how this works. Go ahead and vote, modify, and view the current results of any poll. You can also go to your own <a href="/personal">personal page</a> to see only those polls that you have created, which you can delete or reset. You can also <a href="/create">create</a> a new poll.</p>
+    	<% } else { %>
+    	<p>Hello, and welcome to Vote Often. The website where you can vote in any poll about anything. You can also view the current results of any poll. In order to have more options, including the ability to create your own polls, please go to the <a href="/login">login page</a> or the <a href="/register">registration page</a>.</p>
+    	<% } %>
+    </div>
+    <% if (locals.errmsg) { %>
+    <p id="errmsg"><%= errmsg %></p>
+    <% } %>
+    <div id="polls">
+    	<% polls.forEach( (poll) => { %>
+    	<% var choices = poll.choices %>
+		<form name="poll" class="poll" method="post">
+			<div class="upper">
+				<h4><%= poll.question %></h4>
+				<h6><em>by <%= poll.creator %></em></h6>
+			</div>
+			<div class="lower">
+				<% if (locals.name) { %>
+				<a class="btn" href="/edit/<%= poll.id %>">&#9998; Edit</a>
+				<% } %>
+				<% if (locals.name == poll.creator) { %>
+				<input type="submit" formaction="/reset" class="btn" value="&#8635; Reset" />
+				<input type="submit" formaction="/delete" class="btn" value="&#10006; Delete" />
+				<% } %>
+				<br /><br />
+				<% for (var i = 0; i < choices.length; i++) { %>
+				<input type="radio" name="choice" value=<%= i %> /> <%= choices[i].val %><br />
+				<% } %>
+				<br />
+				<input type="hidden" name="id" value=<%= poll.id %> />
+				<a class="btn" href="/viewres/<%= poll.id %>">&#128065; View Results</a>
+				<input type="submit" formaction="/vote" class="btn" value="&#9745; Vote" />
+			</div>
+		</form>
+		<% }) %>
+	</div>
+    </body>
+</html>

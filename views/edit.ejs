@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+    <% include header %>
+    <h3><%= title %> -- <%= record.question %></h3>
+        <fieldset>
+            <% var choice = record.choices %>
+            <p>Question: <%= record.question %></p>
+            <% for (var i = 0; i < choice.length; i++) { %>
+            <p>Option #<%= i+1 %>: <%= choice[i].val %></p>
+            <% } %>
+        </fieldset>
+    <form method="post">
+        <input type="text" size="40" name="newopt" required />
+        <input type="hidden" name="id" value=<%= record.id %> />
+        <input type="submit" value="Add this option" />
+    </form>
+    <% if (locals.errmsg) { %>
+    <p id="errmsg"><%= errmsg %></p>
+    <% } %>
+    <p><a href="/">Return to home page</p>
+    </body>
+</html>

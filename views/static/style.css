@@ -1,0 +1,83 @@
+* {
+  box-sizing: border-box;
+  margin: 0px;
+  padding: 0px;
+}
+body {
+  font-size: 16px;
+}
+fieldset {
+  margin: 20px;
+}
+h3 {
+  text-indent: 50px;
+}
+#errmsg {
+  color: #FF0000;
+  font-size: 1.2em;
+  font-weight: 600;
+  margin: 20px;
+  padding: 5px;
+  text-indent: 50px;
+}
+#intro {
+  margin: 20px;
+  text-indent: 25px;
+}
+#polls {
+  width: 100%;
+}
+#security {
+  background-color: #BCC2BC;
+  border: 3px solid #000000;
+  margin: 20px;
+  padding: 20px;
+  width: 75%;
+}
+#security h2 {
+  color: #FF0000;
+}
+#topbar {
+    background-color: #81FD81;
+    color: #FFFFFF;
+    font-size: 4em;
+    font-weight: 600;
+    text-align: center;
+}
+#viewmaster {
+  border: 2px solid #000000;
+  margin: 20px;
+  width: 360px;
+}
+.bars {
+  background-color: #B2CCB2;
+  min-height: 100px;
+}
+.btn {
+  background-color: #86F886;
+  border: 1px solid #000000;
+  color: #000000;
+  font-size: 1em;
+  padding: 3px;
+  text-decoration: none;
+}
+.btn:hover {
+  color: #EEEE90;
+}
+.lower {
+  background-color: #AED0AE;
+  border: 1px solid #000000;
+  padding: 10px 0px 10px 25px;
+}
+.poll {
+  display: inline-block;
+  padding: 10px;
+  /* width cannot be 50% because of whitespace between forms */
+  width: 48%;
+}
+.upper {
+  background-color: #9FDF9F;
+  border: 1px solid #000000;
+  font-size: 2em;
+  padding: 10px 20px;
+}

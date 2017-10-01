@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+    <% include header %>
+    <h3><%= title %></h3>
+    <form method="post" onsubmit="return validateRegistration(this)">
+        <fieldset>
+            <label for="username">User: </label><input type="text" id="username" name="username" required /><br />
+            <label for="password1">Password: </label><input type="password" id="password1" name="password1" required /><br />
+            <label for="password2">Confirm Password: </label><input type="password" id="password2" name="password2" required /><br />
+            <input type="submit" value="Register" />
+        </fieldset>
+    </form>
+    <% if (locals.errmsg) { %>
+    <p id="errmsg"><%= errmsg %></p>
+    <% } %>
+    <div id="security">
+        <h2>About Security</h2>
+        <p>This website is a project that will allow me to complete an online web design curriculum. The usernames and passwords you register with are being stored in a Mongo database without any hashing or salt or other secuirty measures. <strong>DO NOT</strong> use a password on this site that you use for any other website. If you do not wish to register for the site, you can use the username of "pop" and password of "secret" to login.</p>
+    </div>
+    <% if (locals.errmsg) { %>
+    <p id="errmsg"><%= errmsg %></p>
+    <% } %>
+    <p><a href="/">Return to home page</p>
+    </body>
+</html>
